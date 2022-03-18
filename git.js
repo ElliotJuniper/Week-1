@@ -21,3 +21,10 @@
 // Copy token
 // paste in signing in bar
 // git push
+
+// Step 5 
+// (When updating)
+// git status
+// git add (whichever needs updating)
+// git commit -m "comment"
+// git push
