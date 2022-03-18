@@ -77,23 +77,95 @@ const pet = {
 console.log(pet.myGuy())
 
 // Activity 3
-
-const coffeeShop = {
-    branch: "Ohio",
-    drinks: "smoothie",
-    drinksPrices: 4,
-    food: "panini",
-    foodPrices: 6,
-
+// Tried to do this question but found it impossible with the knowledge I have. Will use this as a review.
+drinksOrder = [
+    "Espresso",
+    "Americano",
+    "Latte"
+]
+foodOrder = [
+    "Biscuit",
+    "Cake"
+]
+coffeeShop = {
+    branch : "Costa",
+    drinks : [
+        "Espresso", 
+        "Cappuccino", 
+        "Latte" ,
+        "Americano", 
+        "HotChocolate", 
+        "Tea"
+    ],
+    drinkPrices : [
+        1.50,
+        4,
+        3,
+        3.50,
+        2.50
+    ],
+    food: [
+        "Sandwich",
+        "Salad" ,
+        "Snack" ,
+        "Biscuit" ,
+        "Cake"
+    ],
+    foodPrices: [
+        4,
+        4.58,
+        3,
+        1,
+        3.50
+    ],
     drinksOrdered() {
-        return `${drinks}`
+        drinksBill = []
+        for (let i = 0 ; i < drinksOrder.length ; i++) {
+            for (let j = 0; j < coffeeShop.drinks.length; j++) {
+                if (drinksOrder[i] == coffeeShop.drinks[j]){
+                    drinksBill.push(j)
+                }
+                
+            }
+        }
+    
+        console.log('------------------')
+        console.log(`Your drinks order is:\n`)
+        sum = 0
+        for (l = 0; l < drinksBill.length; l++) {
+            console.log(`${coffeeShop.drinks[drinksBill[l]]} ${coffeeShop.drinkPrices[drinksBill[l]]}`)
+            sum += coffeeShop.drinkPrices[drinksBill[l]]
+        }
+        console.log('------------------')
+        console.log(`Total: £ ${sum} \n`)
+        return(sum)
+        },
     
     foodOrdered() {
-        return `${food}`
+        foodBill = []
+        for (let i = 0 ; i < foodOrder.length ; i++) {
+            for (let j = 0; j < coffeeShop.food.length; j++) {
+                if (foodOrder[i] == coffeeShop.food[j]){
+                    foodBill.push(j)
+                }
+                
+            }
+        }
     
+        console.log('------------------')
+        console.log(`Your food order is:\n`)
+        sum = 0
+        for (l = 0; l < foodBill.length; l++) {
+            console.log(`${coffeeShop.food[foodBill[l]]} ${coffeeShop.foodPrices[foodBill[l]]}`)
+            sum += coffeeShop.foodPrices[foodBill[l]]
+        }
+        console.log('------------------')
+        console.log(`Total: £ ${sum} \n`)
+        return(sum)
     }
-    }
-
-
-
+    
 }
+// total
+let foodSum = coffeeShop.foodOrdered()
+let drinkSum = coffeeShop.drinksOrdered()
+console.log(`Grand Total: £ ${foodSum + drinkSum}`)
